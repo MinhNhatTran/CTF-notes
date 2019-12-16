@@ -1,4 +1,4 @@
-Hash length extension attack - tấn công mở rộng độ dài hash là kỹ thuật tấn công dựa trên lỗ hổng của thuật toán hash.<br>
+Hash length extension attack - tấn công mở rộng độ dài hash là kỹ thuật tấn công dựa trên lỗ hổng của thuật toán hash. Các thuật toán hash sử dụng hàm hash Merkle-Damgård đều có thể bị tấn công bởi kỹ thuật này<br>
 Hash length extension attack nhắm vào kỹ thuật MAC (Message Authenticate Code), bằng cách sử dụng kỹ thuật này, 
 attacker có thể truy cập được vào hệ thống dựa trên các cookie public.
 
@@ -27,6 +27,8 @@ Tuy nhiên cách kiểm tra này có thể bị vượt qua bằng cách sử d�
 Từ cookie, chúng ta biết được **Hash(salt||data) = signature**, 
 và có thể tính được **signature1 = Hash(salt||data||data1)** mà không cần biết **salt** là gì, 
 nhưng cần phải biết độ dài salt.
+
+![pic1](./attack.png)
 
 Tool: [HashPump](https://github.com/bwall/HashPump)
 
@@ -64,3 +66,10 @@ Trước khi gửi request lên server thì sẽ cần encode một chút: đổ
 Giờ attacker chỉ cần thay đổi giá trị cookie trong request gửi lên server thành:
 - data: 0%80%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%008%00%00%00%00%00%00%001
 - signature: 7455d9a543c94add622ce190d032bd70
+
+## Cách phòng chống
+- Sử dụng các thuật toán hash không dùng hàm hash Merkle-Damgård
+![pic2](./security-hole-11-unusual-security-vulnerabilities-yuriy-bilyk-26-638.jpg)
+
+Tham khảo tại:
+- https://manhhomienbienthuy.github.io/2015/Sep/30/hash-length-extension-attacks.html

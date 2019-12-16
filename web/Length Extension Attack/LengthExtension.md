@@ -1,4 +1,5 @@
-Hash length extension attack - tấn công mở rộng độ dài hash là kỹ thuật tấn công dựa trên lỗ hổng của thuật toán hash. Các thuật toán hash sử dụng hàm hash Merkle-Damgård đều có thể bị tấn công bởi kỹ thuật này<br>
+Hash length extension attack - tấn công mở rộng độ dài hash là kỹ thuật tấn công dựa trên lỗ hổng của thuật toán hash. Các thuật toán hash sử dụng hàm hash Merkle-Damgård đều có thể bị tấn công bởi kỹ thuật này.<br>
+
 Hash length extension attack nhắm vào kỹ thuật MAC (Message Authenticate Code), bằng cách sử dụng kỹ thuật này, 
 attacker có thể truy cập được vào hệ thống dựa trên các cookie public.
 
